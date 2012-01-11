@@ -1,0 +1,13 @@
+*.nupkg
+*resharper.user
+_ReSharper.*/
+*.sln.cache
+*.suo
+*.user
+[Bb]in/
+[Dd]ebug/
+[Oo]bj/
+[Hh]elp/
+[Rr]elease/
+dist/
+CommonAssemblyInfo.cs
