@@ -9,10 +9,9 @@ namespace vsrunnerjs
 		{
 			if (items == null)
 				throw new ArgumentNullException("items", "collection cannot be null");
-			foreach (T obj in items)
+			foreach (var obj in items)
 				action(obj);
 			return items;
 		}
-
 	}
 }

@@ -11,7 +11,7 @@ namespace vsrunnerjs
 {
 	public interface IJSTestRunner
 	{
-		IEnumerable<JSTest> RunTests(string jsFilePath);
+		IEnumerable<JSTest> RunTests(string jsFilePath, BrowserSetUp browserSetUp);
 	}
 
 	public class JSTestRunner : IJSTestRunner
@@ -19,7 +19,7 @@ namespace vsrunnerjs
 		private readonly List<JSTest> _jSTests = new List<JSTest>();
 
 
-		public IEnumerable<JSTest> RunTests(string jsFilePath)
+		public IEnumerable<JSTest> RunTests(string jsFilePath, BrowserSetUp browserSetUp)
 		{
 			var filesBeingTested =
 				new List<string> {"*.htm", "*.html"}.SelectMany(
@@ -42,13 +42,7 @@ namespace vsrunnerjs
 				{
 					list.AddRange(actions);
 				}
-				var browserSetUp = new BrowserSetUp
-				                   	{
-				                   		BaseUrl = "",
-				                   		UseInternetExplorer = false,
-				                   		UseFireFox = true,
-				                   		CloseBrowserAfterEachTest = false
-				                   	};
+
 				var notification = new TestRunner(new BrowserProvider(browserSetUp), browserSetUp).PassesTest(list) ??
 				                   new Notification();
 
