@@ -55,7 +55,7 @@ namespace vsrunnerjs
 		{
 			if (item != null)
 			{
-				var regex = new Regex(@"\([0-9, ]+\)");
+				var regex = new Regex(@"\([0-9, ]+\)Rerun");
 				var testSummary = regex.Split(item.Text);
 
 				Console.WriteLine(fileBeingTested);
